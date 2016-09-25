@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="no">
+<head>
+
+	<title>Pick-a-flick</title>
+
+	<meta charset="utf-8">
+	<!-- <link rel="stylesheet" 	type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+ -->
+    <style type="text/css" media="screen">
+        *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+    </style>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+		</script>
+	<![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<pre id="object">
+
+	</pre>
+
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyD_0j_9n_JmHKTvTO3nqNx29iwG-C94i9A",
+      authDomain: "pickaflick-cb0aa.firebaseapp.com",
+      databaseURL: "https://pickaflick-cb0aa.firebaseio.com",
+      storageBucket: "pickaflick-cb0aa.appspot.com",
+      messagingSenderId: "342630504231"
+    };
+    firebase.initializeApp(config);
+
+		// Get elements
+
+		const preObject = document.getElementById('object');
+
+		// Create reference
+
+		const dbRefObject = firebase.database().ref().child('object');
+
+		// One powerful method you need to know it's ON
+		// Sync object changes
+
+		// dbRefObject.on('value', snap => console.log(snap.val()));
+		dbRefObject.on('value', snap => {
+			// preObject.innerText = 'I am static';
+			preObject.innerText = JSON.stringify(snap.val(), null, 3);
+
+		});
+
+
+
+
+
+  </script>
+
+
+
+
+
+</body>
+</html>
