@@ -6,12 +6,10 @@
 	<title></title>
 
 	<meta charset="utf-8">
-
-
-	<link rel="stylesheet" 	type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-    <style type="text/css" media="screen">
+	 <link rel="stylesheet" 	type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="style.css">
+   <style type="text/css" media="screen">
         *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 				#poster {
@@ -31,140 +29,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 
+
 </head>
 <body>
 
-<div id="title"><h1></h1></div>
-<div id="poster">
 
-	<img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt="">
-	<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt=""> -->
+<div class="todaysFilm">
+
+
+<div id="title"><h1></h1></div>
+	<div id="poster">
+		<img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt="">
+	</div>
+</div>
+
+
+<div class="menu">
+	<button id="find">Finn film</button>
+	<button id="show">Show all films</button>
+
 
 </div>
-<button>Finn film</button>
+
 
 <div class="main menu">
 
-	<button>Show all films</button>
-	<button>Add new film</button>
 
-	<p>Did you watch the film?
-			<form action="">
-				<label for=""></label>
-				<input type="radio" value="Yes">
-				<input type="radio" value="No">
+	<ul id="filmList">
 
-			</form>
-	</p>
+	</ul>
 
 </div>
 
-<script>
 
-
-
-var myFilms = [
-	'tt0111161',
-	'tt0068646',
-	'tt0071562',
-	'tt0468569',
-	'tt0050083',
-	'tt0108052',
-	'tt0110912',
-	'tt0167260'
-]
-
-// console.log('myFilms.length');
-// alert(myFilms.length);
-
-var pickFilm = function(){
-	todaysFilmnumber = Math.floor(Math.random() * myFilms.length) + 1;
-	todaysFilmIMDB = myFilms[todaysFilmnumber];
-
-	console.log(todaysFilmnumber);
-	console.log(todaysFilmIMDB);
-	var searchString = 'http://www.omdbapi.com/?i=' + todaysFilmIMDB + '&plot=short&r=json'
-	console.log(searchString);
-	return searchString;
-}
-//
-
-var go = function(){
-	console.log('this will do everything');
-	// pickFilm();
-	var min = filmObj(pickFilm());
-
-
-	$('#title h1').text(min.Title);
-	// $('#title h1').text('fackoff');
-	// // $('#title h1').text('Fuck off');
-	$('#poster img').attr('src',min.Poster);
-
-
-}
-
-// var theFilm = 'tt4978274';
-
-// alert(pickFilm());
-
-var filmObj = function (searchString) {
-		var filmObj = null;
-		console.log(searchString);
-		$.ajax({
-				'async': false,
-				'global': false,
-				// 'url': 'http://www.omdbapi.com/?i=tt0319061&plot=short&r=json',
-				// 'url': 'http://www.omdbapi.com/?i=tt4978274&plot=short&r=json',
-				// 'url': 'http://www.omdbapi.com/?i='+ pickFilm +'&plot=short&r=json',
-				'url': searchString,
-				// 'url': pickFilm,
-				'dataType': "json",
-				'success': function (data) {
-						filmObj = data;
-				}
-		});
-		// alert('jyssss!');
-		console.log(filmObj);
-		return filmObj;
-};
-
-
-
-
-
-$(document).ready(function(){
-
-
-			$('#title h1').text(filmObj.Title);
-			// $('#title h1').text('Fuck off');
-			$('#poster img').attr('src',filmObj.Poster);
-
-
-
-
-
-	$('button').on('click', function(){
-
-		// pickFilm();
-		go();
-
-		// $('#title h1').text(filmObj.Title);
-		// // $('#title h1').text('Fuck off');
-		// $('#poster img').attr('src',filmObj.Poster);
-
-
-
-	});
-	// document.writeln(json.Title); //output: 29
-
-
-});
-
-
-
-
-
-
-</script>
+<script src="js/array.js"></script>
+<script src="js/pick.js"></script>
+<script src="js/display.js"></script>
 </body>
 </html>
