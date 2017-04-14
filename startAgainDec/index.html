@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pick A Flick – Firebase</title>
+</head>
+<body>
+
+<!-- <h1 id="bigOne">Bæsje</h1> -->
+
+
+<!-- Value -->
+
+<pre id="object"></pre>
+
+<!-- Child -->
+
+<ul id="list">
+
+</ul>
+
+	
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD_0j_9n_JmHKTvTO3nqNx29iwG-C94i9A",
+    authDomain: "pickaflick-cb0aa.firebaseapp.com",
+    databaseURL: "https://pickaflick-cb0aa.firebaseio.com",
+    storageBucket: "pickaflick-cb0aa.appspot.com",
+    messagingSenderId: "342630504231"
+  };
+  firebase.initializeApp(config);
+
+  // This is just proving that it works
+
+  // var bigOne = document.getElementById('bigOne');
+  // var dbRef = firebase.database().ref().child('text');
+  // dbRef.on('value', snap => bigOne.innerText = snap.val());
+
+
+  // This is Part 1 Firecasts
+
+  // Get elements
+  const preObject = document.getElementById('object');
+  const ulList = document.getElementById('list');
+  
+  // Create reference
+  const dbRefObject = firebase.database().ref().child('object');
+  const dbRefList = dbRefObject.child('hobbies');
+
+  // On method is all powefool
+  dbRefObject.on('value',snap => {
+  	preObject.innerText = JSON.stringify(snap.val(),null,3);
+  });
+
+  // Sync list changes
+
+  dbRefList.on('child_added', snap => {
+
+  	console.log(snap.val());
+
+  });
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

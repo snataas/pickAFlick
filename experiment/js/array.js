@@ -10,6 +10,8 @@ var myFilms = [
 	'tt0074958', // The network
 	'tt0050783', // Fellini
 	'tt0074896', // The message
+	'tt0978762', // Mary and Max
+	'tt0091251', // Mary and Max
 	'tt2375605' // The act of killing
 
 ]
