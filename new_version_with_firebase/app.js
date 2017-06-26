@@ -47,8 +47,18 @@ btnAddFilm.addEventListener('click', e => {
 
 dbRefObject.on('value', snap => {
 
-    preObject.innerText = JSON.stringify(snap.val(), null, 5);
+    // console.log(this);
+    let theMainObject = JSON.stringify(snap.val(), null, 5);
+    // console.log(theMainObject[books]); 
+    // console.log(theMainObject); 
+    let theCurrentObject = JSON.parse(theMainObject);
+    console.log(theCurrentObject);
+    console.log(typeof theCurrentObject);
+    console.log(theCurrentObject.books.book1);
 
+    // console.log(theMainObject); 
+    preObject.innerText = JSON.stringify(snap.val(), null, 5);
+    // console.table(preObject);
 });
 
 

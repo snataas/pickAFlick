@@ -22,6 +22,7 @@ var myFilms = [
 
 // This function picks a film at random from the array and returns a search string for that film's object
 var pickFilm = function() {
+    console.log('ok1');
         todaysFilmnumber = Math.floor(Math.random() * myFilms.length) + 1;
         todaysFilmIMDB = myFilms[todaysFilmnumber];
         console.log(todaysFilmnumber);
