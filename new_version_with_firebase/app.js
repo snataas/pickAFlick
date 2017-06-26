@@ -1,15 +1,3 @@
-// // Initialize Firebase
-// var config = {
-//     apiKey: "AIzaSyBL0TWoWtpmBCa5ZH5If2F2XUHgW7gCQb4",
-//     authDomain: "justreadandwrite-89acc.firebaseapp.com",
-//     databaseURL: "https://justreadandwrite-89acc.firebaseio.com",
-//     projectId: "justreadandwrite-89acc",
-//     storageBucket: "justreadandwrite-89acc.appspot.com",
-//     messagingSenderId: "215442961918"
-// };
-// firebase.initializeApp(config);
-
-
 
 
 
@@ -33,20 +21,33 @@ const dbRefList = dbRefObject.child('imdbRef');
 const dbRefListNames = dbRefObject.child('surname');
 const dbRefListImdbRef = dbRefObject.child('imdbRef');
 
+// Add film
 
-
-function overWrite(newItem){
+function addFilm(newItem){
     // dbRefListNames.set({'name' : newValue });
     // dbRefListNames.set({'name' : 'somFink' });
     dbRefListImdbRef.push(newItem);
 }
 
 
+
+
+btnAddFilm.addEventListener('click', e => {
+
+    const title = newTitle.value;
+    console.log(title);
+    addFilm(title);
+
+    console.log('Added ' + title);
+
+});
+
+
 // Sync object changes
 
 dbRefObject.on('value', snap => {
 
-    // preObject.innerText = JSON.stringify(snap.val(), null, 5);
+    preObject.innerText = JSON.stringify(snap.val(), null, 5);
 
 });
 

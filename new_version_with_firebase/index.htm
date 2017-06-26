@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style type="text/css" media="screen">
+    *,
+    *:after,
+    *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    #poster {
+        max-width: 200px;
+    }
+    
+    #poster img {
+        max-width: 200px;
+    }
+    
+    .hide {
+        display: none;
+    }
+    </style>
+    <!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+		</script>
+	<![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.6/firebase.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="bigOne"></h1>
+        <h1>Add film</h1>
+        <input type="text" id="newTitle" placeholder="IMDB-ID">
+        <button id="btnAddFilm" class="btn btn-action">Add film</button>
+    </div>
+    <div class="container">
+        <input type="email" id="txtEmail" placeholder="Email">
+        <input type="password" id="txtPassword" placeholder="Password">
+        <button id="btnLogin" class="btn btn-action">Log in</button>
+        <button id="btnSignUp" class="btn btn-secondary">Sign up</button>
+        <button id="btnLogOut" class="btn btn-action hide">Log out</button>
+    </div>
+    <div class="container">
+        <div class="todaysFilm">
+            <div id="title">
+                <h1></h1></div>
+            <div id="poster">
+                <img src="http://upload.wikimedia.org/wikipedia/commons/8/88/Bright_red_tomato_and_cross_section02.jpg" alt="">
+            </div>
+        </div>
+        <div class="menu">
+            <button id="find">Finn film</button>
+            <button id="show">Show all films</button>
+        </div>
+        <div class="main menu">
+            <ul id="filmList">
+            </ul>
+        </div>
+    </div>
+    <pre id="object">
+    halloen
+</pre>
+    <ul id="ulList">
+    </ul>
+    <!-- <script src="js/array.js"></script> -->
+    <script src="init.js"></script>
+    <script src="auth.js"></script> -->
+    <script src="app.js"></script>
+    <script src="js/pick.js"></script>
+    <!-- <scri
+
+pt src="js/display.js"></script> -->
+</body>
+
+</html>
